@@ -1,0 +1,3 @@
+infra/.terraform
+terraform.tfvars
+.DS_Store
