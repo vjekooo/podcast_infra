@@ -3,8 +3,8 @@ data "aws_availability_zones" "available" {
 }
 
 resource "aws_vpc" "main" {
-  cidr_block = "172.17.0.0/16"
-  enable_dns_support = true
+  cidr_block           = "172.17.0.0/16"
+  enable_dns_support   = true
   enable_dns_hostnames = true
 
   tags = merge(
@@ -17,7 +17,7 @@ resource "aws_vpc" "main" {
 resource "aws_internet_gateway" "main" {
   vpc_id = aws_vpc.main.id
 
-   tags = merge(
+  tags = merge(
     local.common_tags,
     map("Name", "${local.prefix}-main")
   )
@@ -81,7 +81,7 @@ resource "aws_route_table" "private" {
     nat_gateway_id = element(aws_nat_gateway.gw.*.id, count.index)
   }
 
-   tags = merge(
+  tags = merge(
     local.common_tags,
     map("Name", "${local.prefix}-private")
   )

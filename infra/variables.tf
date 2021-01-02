@@ -39,7 +39,11 @@ variable "ecr_web_image" {
   description = "Docker image to run in the ECS cluster"
 }
 
-variable "app_port" {
+variable "ecr_server_image" {
+  description = "Docker image to run in the ECS cluster"
+}
+
+variable "web_app_port" {
   description = "Port exposed by the docker image to redirect traffic to"
   default     = 80
 }

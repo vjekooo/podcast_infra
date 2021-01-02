@@ -28,7 +28,7 @@ resource "aws_alb_target_group" "web" {
 # Redirect all traffic from the ALB to the target group
 resource "aws_alb_listener" "web" {
   load_balancer_arn = aws_alb.main.id
-  port              = var.app_port
+  port              = var.web_app_port
   protocol          = "HTTP"
 
   default_action {

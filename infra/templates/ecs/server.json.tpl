@@ -1,22 +1,22 @@
 [
  	{
-		"name": "web_app",
-		"image": "${web_image}",
+		"name": "server",
+		"image": "${server_image}",
     "cpu": ${fargate_cpu},
     "memory": ${fargate_memory},
     "networkMode": "awsvpc",
     "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "/ecs/web_app",
+          "awslogs-group": "/ecs/server_app",
           "awslogs-region": "${aws_region}",
-          "awslogs-stream-prefix": "ecs_web"
+          "awslogs-stream-prefix": "ecs_server"
         }
     },
     "portMappings": [
       {
-        "containerPort": ${app_port},
-        "hostPort": ${app_port}
+        "containerPort": 4000,
+        "hostPort": 4000
       }
     ]
   }

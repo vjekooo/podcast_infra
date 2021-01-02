@@ -1,3 +1,14 @@
+
+resource "aws_s3_bucket" "terraform_state" {
+  bucket = "podcast-tfstate"
+  lifecycle {
+    prevent_destroy = true
+  }
+  versioning {
+    enabled = true
+  }
+}
+
 terraform {
   backend "s3" {
     bucket = "podcast-tfstate"
